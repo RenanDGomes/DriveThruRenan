@@ -1,0 +1,3 @@
+O controller é responsável por receber as solicitações do cliente (usuário, navegador, etc.) 
+e coordenar a lógica de negócios necessária para atender a essas solicitações. 
+Ele interage com o modelo para obter ou atualizar dados e depois direciona a resposta apropriada de volta ao cliente.

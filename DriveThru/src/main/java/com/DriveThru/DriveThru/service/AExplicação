@@ -1,0 +1,4 @@
+Os serviços são componentes que encapsulam lógica de negócios específica e podem
+ser chamados por controladores ou outros serviços.
+Eles geralmente contêm métodos que realizam operações específicas e
+podem coordenar a execução de várias operações relacionadas.

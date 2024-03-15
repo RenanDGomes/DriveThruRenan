@@ -1,0 +1,2 @@
+A model representa os dados da aplicação e as regras de negócios associadas. Ele é responsável por armazenar, processar e manipular os dados.
+No padrão de arquitetura MVC (Model-View-Controller), o modelo é a parte que lida com a lógica de negócios e a manipulação de dados.
