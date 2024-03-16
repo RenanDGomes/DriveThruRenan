@@ -3,6 +3,7 @@ package com.DriveThru.DriveThru.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -11,58 +12,46 @@ public class Cliente {
 
     @NotNull(message = "O campo nome não pode ser nulo.")
     @Column(nullable = false)
-    private String nome;
+    private String nomeCliente;
 
     @NotNull(message = "Campo CPF não pode ser nulo.") //O CPF não pode ser nulo
     @Column(nullable = false, unique = true) // O banco de dados não deve permitir valores nulos na coluna correspondente, não tera cpf duplicado
+    @Pattern(regexp = "[0-9]+", message = "Deve conter apenas números")
     @Size(min = 11, max = 14) // Tamnho do cpf deve estar entre 11 a 14 caarcteres
-    private String cpf;
-
-    @NotNull(message = "O saldo não pode ser nulo.")
-    @Column(nullable = false)
-    private float saldo;
+    private String cpfCliente;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idCliente;
 
     public Cliente() {
     }
-    public Cliente(String nome, String cpf, float saldo) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.saldo = saldo;
+    public Cliente(String nomeCliente, String cpfCliente) {
+        this.nomeCliente = nomeCliente;
+        this.cpfCliente = cpfCliente;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCpfCliente() {
+        return cpfCliente;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpfCliente(String cpfCliente) {
+        this.cpfCliente = cpfCliente;
     }
 
-    public float getSaldo() {
-        return saldo;
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public void setSaldo(float saldo) {
-        this.saldo = saldo;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
+    public Long getIdCliente() {
+        return idCliente;
     }
 }

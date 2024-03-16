@@ -21,16 +21,16 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
-    public Cliente editarCliente(Long id, Cliente cliente){
-        if (clienteRepository.existsById(id)) {
-            cliente.setId(id);
+    public Cliente editarCliente(Long idCliente, Cliente cliente){
+        if (clienteRepository.existsById(idCliente)) {
+            cliente.setIdCliente(idCliente);
             return clienteRepository.save(cliente);
         } return null;
     }
 
-    public boolean excluirCliente(Long id){
-        if(clienteRepository.existsById(id)) {
-            clienteRepository.deleteById(id);
+    public boolean excluirCliente(Long idCliente){
+        if(clienteRepository.existsById(idCliente)) {
+            clienteRepository.deleteById(idCliente);
             return true;
         } return false;
     }

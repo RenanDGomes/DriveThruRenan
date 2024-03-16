@@ -27,19 +27,19 @@ public class ClienteController {
         return clienteService.criarCliente(cliente);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> editarCliente(@PathVariable Long id, @RequestBody Cliente cliente) {
-        if (clienteService.editarCliente(id, cliente) == null) {
+    @PutMapping("/{idCliente}")
+    public ResponseEntity<?> editarCliente(@PathVariable Long idCliente, @RequestBody Cliente cliente) {
+        if (clienteService.editarCliente(idCliente, cliente) == null) {
             String mensagem = " o id informado nao existe na base de dados";
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(mensagem);
         }
         return ResponseEntity.ok(cliente);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> excluirCliente(@PathVariable Long id) {
-        if (clienteService.excluirCliente(id)) {
-            String mensagem = "A deleção do id: " + id + " foi realizada com sucesso.";
+    @DeleteMapping("/{idCliente}")
+    public ResponseEntity<?> excluirCliente(@PathVariable Long idCliente) {
+        if (clienteService.excluirCliente(idCliente)) {
+            String mensagem = "A deleção do id: " + idCliente + " foi realizada com sucesso.";
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(mensagem);
         }
         String mensagem = " o id informado nao existe na base de dados";

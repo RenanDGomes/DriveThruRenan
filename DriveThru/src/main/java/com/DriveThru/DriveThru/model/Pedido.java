@@ -1,38 +1,36 @@
 package com.DriveThru.DriveThru.model;
 
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
 public class Pedido {
     @Id
-    private  long idPedido;
-    private Produto produto;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idPedido;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
-    private Produto qtdeProduto;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idProduto")
+    private Produto produto;
 
     public Pedido() {
     }
 
-    public Pedido(long idPedido, Produto produto, Cliente cliente, Produto qtdeProduto) {
+    public Pedido(Long idPedido, Cliente cliente, Produto produto) {
         this.idPedido = idPedido;
-        this.produto = produto;
         this.cliente = cliente;
-        this.qtdeProduto = qtdeProduto;
+        this.produto = produto;
     }
 
-    public long getIdPedido() {
+    public Long getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(long idPedido) {
+    public void setIdPedido(Long idPedido) {
         this.idPedido = idPedido;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
     }
 
     public Cliente getCliente() {
@@ -43,11 +41,15 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public Produto getQtdeProduto() {
-        return qtdeProduto;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setQtdeProduto(Produto qtdeProduto) {
-        this.qtdeProduto = qtdeProduto;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 }
+
+
+
+

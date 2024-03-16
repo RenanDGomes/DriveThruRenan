@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Produto {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idProduto;
     @NotNull(message = "O campo nome não pode ser nulo.")
     @Column(nullable = false)
