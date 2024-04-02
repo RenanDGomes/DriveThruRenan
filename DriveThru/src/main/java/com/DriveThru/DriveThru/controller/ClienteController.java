@@ -29,7 +29,7 @@ public class ClienteController {
 
     @PutMapping("/{idCliente}")
     public ResponseEntity<?> editarCliente(@PathVariable Long idCliente, @RequestBody Cliente cliente) {
-        if (clienteService.editarCliente(idCliente, cliente) == null) {
+        if (clienteService.editarCliente(cliente, idCliente) == null) {
             String mensagem = " o id informado nao existe na base de dados";
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(mensagem);
         }

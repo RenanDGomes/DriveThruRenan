@@ -31,7 +31,7 @@ public class ProdutoController {
 
     @PutMapping("/{idProduto}")
     public ResponseEntity<?> editarProduto(@PathVariable Long idProduto, @RequestBody Produto produto){
-        if( produtoService.editarProduto(idProduto, produto) == null) {
+        if( produtoService.editarProduto(produto, idProduto) == null) {
             String mensagem = " o id informado nao existe na base de dados";
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(mensagem);
         } return ResponseEntity.ok(produto);

@@ -30,7 +30,7 @@ public class PedidoController {
 
     @PutMapping("/{idPedido}")
     public ResponseEntity<?> editarPedido(@PathVariable Long idPedido, @RequestBody Pedido pedido){
-        if(pedidoService.editarPedido(idPedido, pedido) == null){
+        if(pedidoService.editarPedido(pedido, idPedido) == null){
             String mensagem = "o id informado não existe na base de dados";
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(mensagem);
         }
