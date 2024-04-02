@@ -6,7 +6,9 @@ import com.DriveThru.DriveThru.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService implements CrudProdutoService<Produto>{
@@ -38,4 +40,23 @@ public class ProdutoService implements CrudProdutoService<Produto>{
             return true;
         } return false;
     }
+
+    public Produto encontrarProdutoMaisCaro() {
+        List<Produto> produtos = produtoRepository.findAll();
+        if (!produtos.isEmpty()) {
+            Optional<Produto> produtoMaisCaro = produtos.stream()
+                    .max(Comparator.comparing(Produto::getPrecoProduto));
+            return produtoMaisCaro.orElse(null);
+        }return null;
+    }
+
+    public Produto encontrarProdutoMaisBarato() {
+        List<Produto> produtos = produtoRepository.findAll();
+        if (!produtos.isEmpty()) {
+            Optional<Produto> produtoMaisBarato = produtos.stream()
+                    .min(Comparator.comparing(Produto::getPrecoProduto));
+            return produtoMaisBarato.orElse(null);
+        }return null;
+    }
+
 }

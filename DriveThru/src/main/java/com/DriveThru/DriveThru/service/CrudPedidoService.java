@@ -7,4 +7,7 @@ public interface CrudPedidoService<T> {
     T criarPedido(T t);
     T editarPedido(T t, Long idPedido);
     boolean excluirPedido(Long idPedido);
+
+
+
 }

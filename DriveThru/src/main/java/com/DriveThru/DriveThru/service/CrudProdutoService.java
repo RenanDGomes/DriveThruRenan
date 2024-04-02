@@ -7,4 +7,5 @@ public interface CrudProdutoService<T> {
     T criarProduto(T t);
     T editarProduto(T t, Long idProduto);
     boolean excluirProduto(Long idProduto);
+
 }
